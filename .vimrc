@@ -45,10 +45,10 @@ filetype plugin indent on
 """"""""""""""""""""""""""""""
 " php语法提示
 """"""""""""""""""""""""""""""
-autocmd BufNewFile,Bufread *.ros,*.inc,*.php,*.phtml set keywordprg="help"
-set runtimepath+=/Users/kakie/.vim/phpdoc
-au FileType php setlocal dict+=/Users/kakie/.vim/phpdoc/funclist.txt
-au FileType php set complete+=k
+" autocmd BufNewFile,Bufread *.ros,*.inc,*.php,*.phtml set keywordprg="help"
+" set runtimepath+=/Users/kakie/.vim/phpdoc
+" au FileType php setlocal dict+=/Users/kakie/.vim/phpdoc/funclist.txt
+" au FileType php set complete+=k
 
 
 "-- Taglist setting --
@@ -67,6 +67,8 @@ let Tlist_Auto_Highlight_Tag = 1
 
 nnoremap <F8> :TlistToggle<CR>
 
+"for phpcomplete tips
+imap <C-L> <C-X><C-O>
 
 
 
@@ -80,6 +82,7 @@ call vundle#rc()
 "使用Vundle来管理Vundle
 Bundle 'gmarik/vundle'
 
+Bundle 'shawncplus/phpcomplete.vim'
 Bundle 'scrooloose/nerdtree'
 Bundle 'kien/ctrlp.vim'
 Bundle 'mileszs/ack.vim'
@@ -92,6 +95,11 @@ let g:ackprg="ack2 -H --nocolor --nogroup"
 Bundle 'altercation/vim-colors-solarized'
 Bundle 'tomasr/molokai'
 colorscheme molokai
+" let g:molokai_original = 1
+" syntax enable
+" set background=dark
+" colorscheme solarized
+" let g:solarized_termcolors=256
 
 Bundle 'majutsushi/tagbar'
 nnoremap <F9> :TagbarToggle<CR>
@@ -111,6 +119,9 @@ autocmd FileType python,shell set commentstring=#\ %s
 autocmd FileType php,js set commentstring=//\ %s
 autocmd FileType phtml set commentstring=<!-- %s -->
 autocmd FileType mako set cms=##\ %s
+
+" filetype plugin on
+autocmd FileType php set omnifunc=phpcomplete#CompletePHP
 
 "补全引号
 Bundle "Raimondi/delimitMate"
@@ -229,3 +240,26 @@ inoremap <expr> <CR>       pumvisible() ? "\<C-y>" : "\<CR>"
 " YCM 补全菜单配色
 " highlight Pmenu ctermfg=2 ctermbg=3 guifg=SeaGreen guibg=darkgreen    " 菜单
 " highlight PmenuSel ctermfg=2 ctermbg=3 guifg=SeaGreen guibg=darkgreen " Select
+
+
+
+" "开启插件
+" filetype plugin indent on 
+
+
+" " """"""""""""""""""""""""""""""
+" " " php语法提示
+" " """"""""""""""""""""""""""""""
+" " autocmd BufNewFile,Bufread *.ros,*.inc,*.php,*.phtml set keywordprg="help"
+" " set runtimepath+=/Users/kakie/.vim/phpdoc
+" " au FileType php setlocal dict+=/Users/kakie/.vim/phpdoc/funclist.txt
+" " au FileType php set complete+=k
+
+
+" " 只有在是PHP文件时，才启用PHP补全
+" au FileType php call AddPHPFuncList()
+" function AddPHPFuncList()
+"     set dictionary-=/Users/kakie/.vim/phpdoc/funclist.txt dictionary+=/Users/kakie/.vim/phpdoc/funclist.txt
+"     set complete-=k complete+=k
+" endfunction
+
