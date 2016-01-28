@@ -37,6 +37,8 @@ set ignorecase
 "设定 << 和 >> 命令移动时的宽度为 4
 set shiftwidth=4 
 
+set wildignore+=*.o,.svn,.git,*.rbc,*.pyc,__pycache__
+
 "开启插件
 filetype plugin indent on 
 
@@ -85,12 +87,17 @@ Bundle 'gmarik/vundle'
 Bundle 'shawncplus/phpcomplete.vim'
 Bundle 'scrooloose/nerdtree'
 Bundle 'kien/ctrlp.vim'
+
+" let g:ctrlp_use_caching = 0
+let g:ctrlp_custom_ignore = 'node_modules\|bower_components\|dist'
+
 Bundle 'mileszs/ack.vim'
 let g:ackprg="ack2 -H --nocolor --nogroup"
 " Bundle 'mattn/zencoding-vim'
 " Bundle 'mattn/emmet-vim'
 " Bundle 'yonchu/accelerated-smooth-scroll'
 
+Bundle 'editorconfig/editorconfig-vim'
 
 Bundle 'altercation/vim-colors-solarized'
 Bundle 'tomasr/molokai'
