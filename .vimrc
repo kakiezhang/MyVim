@@ -94,6 +94,8 @@ endif
 
 Plug 'deoplete-plugins/deoplete-go', { 'do': 'make'}
 
+" Plug 'deoplete-plugins/deoplete-jedi'
+
 Plug 'davidhalter/jedi-vim'
 
 call plug#end()
@@ -192,19 +194,22 @@ let g:go_fmt_command = "goimports"
 " deoplete
 let g:deoplete#enable_at_startup = 1
 let g:deoplete#python3_host_prog = '~/.pyenv/versions/3.7.2/bin/python3.7'
-" let g:deoplete#sources#go#python3_host_prog = '~/.pyenv/versions/3.7.2/bin/python3.7'
 
-autocmd FileType go inoremap <expr> <Tab> pumvisible() ? "\<C-n>" : "\<Tab>"
-autocmd FileType go inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
-autocmd FileType go inoremap <expr> <cr> pumvisible() ? "\<C-y>" : "\<cr>"
+" autocmd FileType go inoremap <expr> <Tab> pumvisible() ? "\<C-n>" : "\<Tab>"
+" autocmd FileType go inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
+" autocmd FileType go inoremap <expr> <cr> pumvisible() ? "\<C-y>" : "\<cr>"
 
-" set completeopt+=noselect
-" set completeopt+=noinsert
-" set completeopt-=preview
+inoremap <expr> <Tab> pumvisible() ? "\<C-n>" : "\<Tab>"
+inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
+inoremap <expr> <cr> pumvisible() ? "\<C-y>" : "\<cr>"
 
-autocmd FileType go setlocal completeopt+=noselect
-autocmd FileType go setlocal completeopt+=noinsert
-autocmd FileType go setlocal completeopt-=preview
+set completeopt+=noselect
+set completeopt+=noinsert
+set completeopt-=preview
+
+" autocmd FileType go setlocal completeopt+=noselect
+" autocmd FileType go setlocal completeopt+=noinsert
+" autocmd FileType go setlocal completeopt-=preview
 
 " deoplete-go
 let g:deoplete#sources#go#gocode_binary = $GOPATH.'/bin/gocode'
@@ -222,7 +227,15 @@ let g:jedi#documentation_command = "<leader>gk"
 let g:jedi#usages_command = "<leader>gn"
 let g:jedi#completions_command = "<leader>gc"
 let g:jedi#rename_command = "<leader>gr"
+let g:python3_host_prog = expand('~/.pyenv/versions/3.7.2/bin/python3.7')
 autocmd FileType python setlocal completeopt-=preview
+
+" " Disable Jedi-vim autocompletion and enable call-signatures options
+" let g:jedi#auto_initialization = 0
+" let g:jedi#completions_enabled = 0
+" let g:jedi#smart_auto_mappings = 0
+" let g:jedi#popup_on_dot = 0
+" let g:jedi#show_call_signatures = "1"
 
 " Jump to last leave
 autocmd BufReadPost *
