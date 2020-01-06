@@ -54,7 +54,13 @@ set t_Co=256
 
 set guifont="DejaVu\ Sans\ Mono\ for\ Powerline.ttf" "use DejaVu Sans Mono for english on win/linux, Monaco for mac"
 
-call plug#begin('~/.vim/plugged')
+let s:plug_dir = '~/.vim/plugged'
+
+let g:plug_shallow = 0
+let g:plug_window  = 'enew'
+let g:plug_pwindow = 'vertical rightbelow new'
+
+call plug#begin(s:plug_dir)
 Plug 'morhetz/gruvbox'
 
 Plug 'vim-airline/vim-airline'
