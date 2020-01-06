@@ -218,4 +218,10 @@ let g:jedi#completions_command = "<leader>gc"
 let g:jedi#rename_command = "<leader>gr"
 autocmd FileType python setlocal completeopt-=preview
 
+" Jump to last leave
+autocmd BufReadPost *
+    \ if line("'\"") > 1 && line("'\"") <= line("$") |
+    \   exe "normal! g`\"" |
+    \ endif
+
 filetype off
