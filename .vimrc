@@ -98,6 +98,9 @@ Plug 'deoplete-plugins/deoplete-go', { 'do': 'make'}
 
 Plug 'davidhalter/jedi-vim'
 
+Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
+Plug 'junegunn/fzf.vim'
+
 call plug#end()
 
 filetype plugin indent on
@@ -155,9 +158,10 @@ nmap <leader>7 <Plug>AirlineSelectTab7
 nmap <leader>8 <Plug>AirlineSelectTab8
 nmap <leader>9 <Plug>AirlineSelectTab9
 
-nnoremap gn :bn<CR>
-nnoremap gp :bp<CR>
-nnoremap gd :bd<CR>:bn<CR>
+let mapleader = "g"
+nnoremap <leader>n :bn<CR>
+nnoremap <leader>p :bp<CR>
+nnoremap <leader>d :bp<CR>:bd #<CR>
 filetype off
 
 filetype plugin indent on
