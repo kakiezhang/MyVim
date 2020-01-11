@@ -28,6 +28,11 @@ set cursorcolumn
 "高亮当前列的背景颜色
 hi CursorColumn guibg=#333333
 
+filetype plugin indent on
+let mapleader = ""
+nnoremap <Leader>c :set cursorline! cursorcolumn!<CR>
+filetype off
+
 "制表符占4个空格
 set tabstop=4
 
@@ -100,6 +105,8 @@ Plug 'davidhalter/jedi-vim'
 
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/fzf.vim'
+
+Plug 'junegunn/limelight.vim'
 
 call plug#end()
 
@@ -246,5 +253,27 @@ autocmd BufReadPost *
     \ if line("'\"") > 1 && line("'\"") <= line("$") |
     \   exe "normal! g`\"" |
     \ endif
+
+" Color name (:help cterm-colors) or ANSI code
+let g:limelight_conceal_ctermfg = 'gray'
+let g:limelight_conceal_ctermfg = 240
+
+" Color name (:help gui-colors) or RGB color
+let g:limelight_conceal_guifg = 'DarkGray'
+let g:limelight_conceal_guifg = '#777777'
+
+" default: 0.5
+let g:limelight_default_coefficient = 0.2
+
+" Number of preceding/following paragraphs to include (default: 0)
+let g:limelight_paragraph_span = 1
+
+" Highlighting priority (default: 10)
+"   Set it to -1 not to overrule hlsearch
+let g:limelight_priority = -1
+
+autocmd BufReadPost * Limelight
+let mapleader = ""
+nnoremap <Leader>l :Limelight!!<CR>
 
 filetype off
