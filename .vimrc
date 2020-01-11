@@ -29,8 +29,8 @@ set cursorcolumn
 hi CursorColumn guibg=#333333
 
 filetype plugin indent on
-let mapleader = ""
-nnoremap <Leader>c :set cursorline! cursorcolumn!<CR>
+let mapleader = "z"
+nnoremap <Leader>crs :set cursorline! cursorcolumn!<CR>
 filetype off
 
 "制表符占4个空格
@@ -273,7 +273,7 @@ let g:limelight_paragraph_span = 1
 let g:limelight_priority = -1
 
 autocmd BufReadPost * Limelight
-let mapleader = ""
-nnoremap <Leader>l :Limelight!!<CR>
+let mapleader = "z"
+nnoremap <Leader>ll :Limelight!!<CR>
 
 filetype off
