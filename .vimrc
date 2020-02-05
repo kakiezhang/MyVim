@@ -195,6 +195,10 @@ map <leader><space> :%s/\s\+$//<CR>
 map <leader>nu :set nu<CR>
 map <leader>nonu :set nonu<CR>
 
+" set paste open & close
+map <leader>pt :set paste<CR>
+map <leader>nopt :set nopaste<CR>
+
 " vim-go
 autocmd FileType go nunmap <buffer> gd
 autocmd FileType go nnoremap <buffer> <leader>gg :GoDef<CR>
@@ -204,7 +208,7 @@ let g:go_fmt_command = "goimports"
 
 " deoplete
 let g:deoplete#enable_at_startup = 1
-let g:deoplete#python3_host_prog = '~/.pyenv/versions/3.7.2/bin/python3.7'
+let g:deoplete#python3_host_prog = '~/.pyenv/versions/3.7.6/bin/python3.7'
 
 " autocmd FileType go inoremap <expr> <Tab> pumvisible() ? "\<C-n>" : "\<Tab>"
 " autocmd FileType go inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
@@ -238,7 +242,7 @@ let g:jedi#documentation_command = "<leader>gk"
 let g:jedi#usages_command = "<leader>gn"
 let g:jedi#completions_command = "<leader>gc"
 let g:jedi#rename_command = "<leader>gr"
-let g:python3_host_prog = expand('~/.pyenv/versions/3.7.2/bin/python3.7')
+let g:python3_host_prog = expand('~/.pyenv/versions/3.7.6/bin/python3.7')
 autocmd FileType python setlocal completeopt-=preview
 
 " " Disable Jedi-vim autocompletion and enable call-signatures options
@@ -266,7 +270,7 @@ let g:limelight_conceal_guifg = '#777777'
 let g:limelight_default_coefficient = 0.2
 
 " Number of preceding/following paragraphs to include (default: 0)
-let g:limelight_paragraph_span = 1
+let g:limelight_paragraph_span = 3
 
 " Highlighting priority (default: 10)
 "   Set it to -1 not to overrule hlsearch
