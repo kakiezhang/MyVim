@@ -106,7 +106,7 @@ Plug 'davidhalter/jedi-vim'
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/fzf.vim'
 
-Plug 'junegunn/limelight.vim'
+" Plug 'junegunn/limelight.vim'
 
 call plug#end()
 
@@ -258,26 +258,26 @@ autocmd BufReadPost *
     \   exe "normal! g`\"" |
     \ endif
 
-" Color name (:help cterm-colors) or ANSI code
-let g:limelight_conceal_ctermfg = 'gray'
-let g:limelight_conceal_ctermfg = 240
+" " Color name (:help cterm-colors) or ANSI code
+" let g:limelight_conceal_ctermfg = 'gray'
+" let g:limelight_conceal_ctermfg = 240
 
-" Color name (:help gui-colors) or RGB color
-let g:limelight_conceal_guifg = 'DarkGray'
-let g:limelight_conceal_guifg = '#777777'
+" " Color name (:help gui-colors) or RGB color
+" let g:limelight_conceal_guifg = 'DarkGray'
+" let g:limelight_conceal_guifg = '#777777'
 
-" default: 0.5
-let g:limelight_default_coefficient = 0.2
+" " default: 0.5
+" let g:limelight_default_coefficient = 0.2
 
-" Number of preceding/following paragraphs to include (default: 0)
-let g:limelight_paragraph_span = 3
+" " Number of preceding/following paragraphs to include (default: 0)
+" let g:limelight_paragraph_span = 3
 
-" Highlighting priority (default: 10)
-"   Set it to -1 not to overrule hlsearch
-let g:limelight_priority = -1
+" " Highlighting priority (default: 10)
+" "   Set it to -1 not to overrule hlsearch
+" let g:limelight_priority = -1
 
-autocmd BufReadPost * Limelight
-let mapleader = "z"
-nnoremap <Leader>ll :Limelight!!<CR>
+" autocmd BufReadPost * Limelight
+" let mapleader = "z"
+" nnoremap <Leader>ll :Limelight!!<CR>
 
 filetype off
