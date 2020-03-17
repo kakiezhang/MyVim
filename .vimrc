@@ -57,7 +57,8 @@ set wildignore+=*.o,.svn,.git,*.rbc,*.pyc,__pycache__
 
 set t_Co=256
 
-set guifont="DejaVu\ Sans\ Mono\ for\ Powerline.ttf" "use DejaVu Sans Mono for english on win/linux, Monaco for mac"
+" set guifont="DejaVu\ Sans\ Mono\ for\ Powerline.ttf" "use DejaVu Sans Mono for english on win/linux, Monaco for mac"
+set guifont="FiraCode\ Nerd\ Font.ttf"
 
 let s:plug_dir = '~/.vim/plugged'
 
@@ -143,6 +144,14 @@ let g:airline_right_alt_sep = ''
 let g:airline_symbols.branch = ''
 let g:airline_symbols.readonly = ''
 let g:airline_symbols.linenr = ''
+
+let g:airline_left_sep = "\uE0C0"
+" let g:airline_left_sep = "\uE0C4"
+let g:airline_right_sep = "\uE0C5"
+" let g:airline_right_sep = "\uE0C7"
+
+" set the CN (column number) symbol:
+let g:airline_section_z = airline#section#create(["\uE0A1" . '%{line(".")}' . "\uE0A3" . '%{col(".")}'])
 
 " airline主题
 let g:airline_theme = 'powerlineish'
