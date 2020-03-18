@@ -109,6 +109,8 @@ Plug 'junegunn/fzf.vim'
 
 " Plug 'junegunn/limelight.vim'
 
+Plug 'easymotion/vim-easymotion'
+
 call plug#end()
 
 filetype plugin indent on
@@ -288,5 +290,46 @@ autocmd BufReadPost *
 " autocmd BufReadPost * Limelight
 " let mapleader = "z"
 " nnoremap <Leader>ll :Limelight!!<CR>
+
+filetype off
+
+filetype plugin indent on
+" easy-motion
+let mapleader = "m"
+
+" " <Leader>f{char} to move to {char}
+" map  <Leader>f <Plug>(easymotion-bd-f)
+" nmap <Leader>f <Plug>(easymotion-overwin-f)
+
+" Gif config
+map  <Leader>f <Plug>(easymotion-sn)
+omap <Leader>f <Plug>(easymotion-tn)
+
+" " s{char}{char} to move to {char}{char}
+" nmap <Leader>s <Plug>(easymotion-overwin-f2)
+
+let mapleader = "z"
+
+" Move to line
+map <Leader>L <Plug>(easymotion-bd-jk)
+nmap <Leader>L <Plug>(easymotion-overwin-line)
+
+" Move to word
+map  <Leader>w <Plug>(easymotion-bd-w)
+nmap <Leader>w <Plug>(easymotion-overwin-w)
+
+" " These `n` & `N` mappings are options. You do not have to map `n` & `N` to EasyMotion.
+" " Without these mappings, `n` & `N` works fine. (These mappings just provide
+" " different highlight method and have some other features )
+" map <Leader>n <Plug>(easymotion-next)
+" map <Leader>N <Plug>(easymotion-prev)
+
+" Gif config
+map <Leader>l <Plug>(easymotion-lineforward)
+map <Leader>j <Plug>(easymotion-j)
+map <Leader>k <Plug>(easymotion-k)
+map <Leader>h <Plug>(easymotion-linebackward)
+
+let g:EasyMotion_startofline = 0 " keep cursor column when JK motion
 
 filetype off
