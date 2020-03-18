@@ -308,8 +308,6 @@ omap <Leader>f <Plug>(easymotion-tn)
 " " s{char}{char} to move to {char}{char}
 " nmap <Leader>s <Plug>(easymotion-overwin-f2)
 
-let mapleader = "z"
-
 " Move to line
 map <Leader>L <Plug>(easymotion-bd-jk)
 nmap <Leader>L <Plug>(easymotion-overwin-line)
