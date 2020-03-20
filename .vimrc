@@ -57,6 +57,9 @@ set wildignore+=*.o,.svn,.git,*.rbc,*.pyc,__pycache__
 
 set t_Co=256
 
+set undofile "maintain undo history between sessions
+set undodir=~/.vim/undodir
+
 " set guifont="DejaVu\ Sans\ Mono\ for\ Powerline.ttf" "use DejaVu Sans Mono for english on win/linux, Monaco for mac"
 set guifont="FiraCode\ Nerd\ Font.ttf"
 
