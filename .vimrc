@@ -114,6 +114,9 @@ Plug 'junegunn/fzf.vim'
 
 Plug 'easymotion/vim-easymotion'
 
+Plug 'rust-lang/rust.vim'
+Plug 'racer-rust/vim-racer'
+
 call plug#end()
 
 filetype plugin indent on
@@ -253,6 +256,20 @@ map <leader>nonu :set nonu<CR>
 " set paste open & close
 map <leader>pt :set paste<CR>
 map <leader>nopt :set nopaste<CR>
+
+" vim-rust & rust-racer
+let g:rustfmt_autosave = 1
+" set hidden
+let g:racer_cmd = "~/.cargo/bin/racer"
+let g:racer_experimental_completer = 1
+augroup Racer
+    autocmd!
+    autocmd FileType rust nmap <buffer> <leader>gg <Plug>(rust-def)
+    autocmd FileType rust nmap <buffer> <leader>gs <Plug>(rust-def-split)
+    autocmd FileType rust nmap <buffer> <leader>gv <Plug>(rust-def-vertical)
+    autocmd FileType rust nmap <buffer> <leader>gd <Plug>(rust-doc)
+    " autocmd FileType rust nmap <buffer> <leader>gt <Plug>(rust-def-tab)
+augroup END
 
 " vim-go
 autocmd FileType go nunmap <buffer> gd
