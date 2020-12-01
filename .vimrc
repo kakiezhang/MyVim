@@ -11,6 +11,10 @@ syntax on
 "在状态栏显示正在输入的命令
 set showcmd
 
+""短时 esc timeout
+"set timeoutlen=200
+"set ttimeoutlen=5
+
 "增量式搜索
 set incsearch
 "高亮搜索
@@ -212,7 +216,8 @@ let g:airline#extensions#tabline#show_tab_type = 1
 let g:airline#extensions#tabline#fnamemod = ':t'
 let g:airline#extensions#tabline#buffer_idx_mode = 1
 
-let mapleader = ""
+" let mapleader = ""
+let mapleader = "g"
 nmap <leader>1 <Plug>AirlineSelectTab1
 nmap <leader>2 <Plug>AirlineSelectTab2
 nmap <leader>3 <Plug>AirlineSelectTab3
@@ -223,7 +228,7 @@ nmap <leader>7 <Plug>AirlineSelectTab7
 nmap <leader>8 <Plug>AirlineSelectTab8
 nmap <leader>9 <Plug>AirlineSelectTab9
 
-let mapleader = "g"
+" let mapleader = "g"
 nnoremap <leader>n :bn<CR>
 nnoremap <leader>p :bp<CR>
 nnoremap <leader>d :bp<CR>:bd #<CR>
@@ -237,7 +242,7 @@ autocmd FileType phtml set commentstring=<!-- %s -->
 autocmd FileType mako set cms=##\ %s
 
 " nerdtree
-let g:NERDTreeIgnore = ['\~$', 'vendor', 'node_modules', 'bower_components', 'dist', '\.pyc$', '__pycache__']
+let g:NERDTreeIgnore = ['\~$', '\.o$', 'vendor', 'node_modules', 'bower_components', 'dist', '\.pyc$', '__pycache__']
 
 " ctrlp
 let g:ctrlp_custom_ignore = 'node_modules\|bower_components\|dist'
@@ -280,7 +285,8 @@ let g:go_fmt_command = "goimports"
 
 " deoplete
 let g:deoplete#enable_at_startup = 1
-let g:deoplete#python3_host_prog = '~/.pyenv/versions/3.7.6/bin/python3.7'
+" let g:deoplete#python3_host_prog = '~/.pyenv/versions/3.7.6/bin/python3.7'
+let g:deoplete#python3_host_prog = '/usr/local/opt/python@3.8/bin/python3'
 
 " autocmd FileType go inoremap <expr> <Tab> pumvisible() ? "\<C-n>" : "\<Tab>"
 " autocmd FileType go inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
@@ -314,7 +320,8 @@ let g:jedi#documentation_command = "<leader>gk"
 let g:jedi#usages_command = "<leader>gn"
 let g:jedi#completions_command = "<leader>gc"
 let g:jedi#rename_command = "<leader>gr"
-let g:python3_host_prog = expand('~/.pyenv/versions/3.7.6/bin/python3.7')
+" let g:python3_host_prog = expand('~/.pyenv/versions/3.7.6/bin/python3.7')
+let g:python3_host_prog = expand('/usr/local/opt/python@3.8/bin/python3')
 autocmd FileType python setlocal completeopt-=preview
 
 " " Disable Jedi-vim autocompletion and enable call-signatures options
