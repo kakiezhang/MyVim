@@ -3,6 +3,8 @@ set nocompatible
 
 set background=dark
 
+set noswapfile
+
 "显示行号
 set number
 "语法高亮
