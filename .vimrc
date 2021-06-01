@@ -82,6 +82,7 @@ Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 
 Plug 'tpope/vim-commentary'
+Plug 'tpope/vim-fugitive'
 
 Plug 'scrooloose/nerdtree'
 
@@ -287,8 +288,8 @@ let g:go_fmt_command = "goimports"
 
 " deoplete
 let g:deoplete#enable_at_startup = 1
-" let g:deoplete#python3_host_prog = '~/.pyenv/versions/3.7.6/bin/python3.7'
-let g:deoplete#python3_host_prog = '/usr/local/opt/python@3.8/bin/python3'
+" let g:deoplete#python3_host_prog = '/usr/local/opt/python@3.8/bin/python3'
+let g:deoplete#python3_host_prog = '/usr/local/bin/python3.9'
 
 " autocmd FileType go inoremap <expr> <Tab> pumvisible() ? "\<C-n>" : "\<Tab>"
 " autocmd FileType go inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
@@ -322,8 +323,8 @@ let g:jedi#documentation_command = "<leader>gk"
 let g:jedi#usages_command = "<leader>gn"
 let g:jedi#completions_command = "<leader>gc"
 let g:jedi#rename_command = "<leader>gr"
-" let g:python3_host_prog = expand('~/.pyenv/versions/3.7.6/bin/python3.7')
-let g:python3_host_prog = expand('/usr/local/opt/python@3.8/bin/python3')
+" let g:python3_host_prog = expand('/usr/local/opt/python@3.8/bin/python3')
+let g:python3_host_prog = expand('/usr/local/bin/python3.9')
 autocmd FileType python setlocal completeopt-=preview
 
 " " Disable Jedi-vim autocompletion and enable call-signatures options
