@@ -126,6 +126,13 @@ Plug 'easymotion/vim-easymotion'
 Plug 'rust-lang/rust.vim'
 Plug 'racer-rust/vim-racer'
 
+" Track the engine.
+Plug 'SirVer/ultisnips'
+" Snippets are separated from the engine. Add this if you want them:
+Plug 'honza/vim-snippets'
+
+Plug 'MarcWeber/vim-addon-manager'
+
 call plug#end()
 
 filetype plugin indent on
@@ -221,8 +228,7 @@ let g:airline#extensions#tabline#show_tab_type = 1
 let g:airline#extensions#tabline#fnamemod = ':t'
 let g:airline#extensions#tabline#buffer_idx_mode = 1
 
-" let mapleader = ""
-let mapleader = "g"
+let mapleader = "t"
 nmap <leader>1 <Plug>AirlineSelectTab1
 nmap <leader>2 <Plug>AirlineSelectTab2
 nmap <leader>3 <Plug>AirlineSelectTab3
@@ -233,7 +239,6 @@ nmap <leader>7 <Plug>AirlineSelectTab7
 nmap <leader>8 <Plug>AirlineSelectTab8
 nmap <leader>9 <Plug>AirlineSelectTab9
 
-" let mapleader = "g"
 nnoremap <leader>n :bn<CR>
 nnoremap <leader>p :bp<CR>
 nnoremap <leader>d :bp<CR>:bd #<CR>
@@ -267,6 +272,15 @@ map <leader>nonu :set nonu<CR>
 map <leader>pt :set paste<CR>
 map <leader>nopt :set nopaste<CR>
 
+" GoReferrers
+map <Leader>gr :GoReferrers<CR>
+
+" clear go build tags
+map <Leader>cgt :GoBuildTags ""<CR>
+
+" Git blame
+map <Leader>gb :Git blame<CR>
+
 " vim-rust & rust-racer
 let g:rustfmt_autosave = 1
 " set hidden
@@ -282,11 +296,15 @@ augroup Racer
 augroup END
 
 " vim-go
+let g:go_def_mode='gopls'
+let g:go_info_mode='gopls'
 autocmd FileType go nunmap <buffer> gd
 autocmd FileType go nnoremap <buffer> <leader>gg :GoDef<CR>
 autocmd FileType go nnoremap <buffer> <leader>gh :GoDefPop<CR>
 setlocal omnifunc=go#complete#Complete
+au FileType go setlocal omnifunc=go#complete#GocodeComplete
 let g:go_fmt_command = "goimports"
+let g:go_doc_popup_window = 1
 
 " deoplete
 let g:deoplete#enable_at_startup = 1
@@ -310,7 +328,7 @@ set completeopt-=preview
 " autocmd FileType go setlocal completeopt-=preview
 
 " deoplete-go
-let g:deoplete#sources#go#gocode_binary = $GOPATH.'/bin/gocode'
+" let g:deoplete#sources#go#gocode_binary = $GOPATH.'/bin/gocode'
 let g:deoplete#sources#go#sort_class = ['package', 'func', 'type', 'var', 'const']
 " 打开此选项会从-source中检索完成localpackage的补全但是会变得很慢 不建议
 " let g:deoplete#sources#go#source_importer = 1
@@ -395,5 +413,63 @@ let g:tagbar_type_go = {
 	\ 'ctagsbin'  : 'gotags',
 	\ 'ctagsargs' : '-sort -silent'
 \ }
+
+
+" " start MarcWeber/vim-addon-manager
+" syn on
+
+" fun! SetupVAM()
+"   let c = get(g:, 'vim_addon_manager', {})
+"   let g:vim_addon_manager = c
+"   let c.plugin_root_dir = expand('$HOME', 1) . '/.vim/vim-addons'
+
+"   " Force your ~/.vim/after directory to be last in &rtp always:
+"   " let g:vim_addon_manager.rtp_list_hook = 'vam#ForceUsersAfterDirectoriesToBeLast'
+
+"   " most used options you may want to use:
+"   " let c.log_to_buf = 1
+"   " let c.auto_install = 0
+"   let &rtp.=(empty(&rtp)?'':',').c.plugin_root_dir.'/vim-addon-manager'
+"   if !isdirectory(c.plugin_root_dir.'/vim-addon-manager/autoload')
+"     execute '!git clone --depth=1 git://github.com/MarcWeber/vim-addon-manager '
+"         \       shellescape(c.plugin_root_dir.'/vim-addon-manager', 1)
+"   endif
+
+"   " This provides the VAMActivate command, you could be passing plugin names, too
+"   call vam#ActivateAddons([], {})
+" endfun
+" call SetupVAM()
+
+" ACTIVATING PLUGINS
+
+" " OPTION 1, use VAMActivate
+" VAMActivate PLUGIN_NAME PLUGIN_NAME ..
+
+" " OPTION 2: use call vam#ActivateAddons
+" call vam#ActivateAddons([PLUGIN_NAME], {})
+" " use <c-x><c-p> to complete plugin names
+
+" " OPTION 3: Create a file ~/.vim-scripts putting a PLUGIN_NAME into each line (# for comments)
+" " See lazy loading plugins section in README.md for details
+" call vam#Scripts('~/.vim-scripts', {'tag_regex': '.*'})
+" end MarcWeber/vim-addon-manager
+
+
+
+
+
+
+" ActivateAddons vim-snippets snipmate
+
+" Trigger configuration. You need to change this to something other than <tab> if you use one of the following:
+" - https://github.com/Valloric/YouCompleteMe
+" - https://github.com/nvim-lua/completion-nvim
+let g:UltiSnipsExpandTrigger="<C-f>"
+" let g:UltiSnipsJumpForwardTrigger="<C-f>"
+let g:UltiSnipsJumpBackwardTrigger="<C-b>"
+
+" If you want :UltiSnipsEdit to split your window.
+let g:UltiSnipsEditSplit="vertical"
+
 
 filetype off

@@ -4,3 +4,5 @@ undodir/
 view/
 .netrwhist
 *.sw[op]
+UltiSnips/
+vim-addons/
