@@ -136,6 +136,10 @@ Plug 'MarcWeber/vim-addon-manager'
 call plug#end()
 
 filetype plugin indent on
+
+" search visual selected words
+vnoremap // y/\V<C-R>=escape(@",'/\')<CR><CR>")
+
 " easy-motion
 let mapleader = "m"
 
